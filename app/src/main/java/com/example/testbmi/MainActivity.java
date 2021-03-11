@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
             double w = Double.parseDouble(weight.getText().toString());
             double bmi = w / ((h/100.0) * (h/100.0));
             showbmi.setText(String.valueOf(bmi));
+            //23232323424324234
+            //32432432432432
+
         }
 
     }
