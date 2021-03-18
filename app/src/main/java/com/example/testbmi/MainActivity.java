@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText height;
     private EditText weight;
     private TextView showbmi;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         height = findViewById(R.id.edHeight);
         weight = findViewById(R.id.edWeight);
         showbmi = findViewById(R.id.tvShowBMI);
+        imageView = findViewById(R.id.ivShow);
 
     }
 
@@ -35,10 +38,13 @@ public class MainActivity extends AppCompatActivity {
             String txt = "";
             if(bmi<18.5) {
                 txt = "體重過輕";
+                imageView.setImageResource(R.drawable.a1);
             } else if (bmi>25) {
                 txt = "體重過重";
+                imageView.setImageResource(R.drawable.a3);
             } else {
                 txt = "體重正常";
+                imageView.setImageResource(R.drawable.a2);
             }
             DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
