@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText height;
@@ -38,7 +40,11 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 txt = "體重正常";
             }
-            showbmi.setText(String.valueOf(bmi)+txt);
+            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
+//          showbmi.setText(String.valueOf(bmi)+txt);
+            showbmi.setText(decimalFormat.format(bmi)+txt);
+
         }
 
     }
