@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText weight;
     private TextView showbmi;
     private ImageView imageView;
+    private boolean[] checked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         weight = findViewById(R.id.edWeight);
         showbmi = findViewById(R.id.tvShowBMI);
         imageView = findViewById(R.id.ivShow);
-
+        checked = new boolean[]{false,false,false,false};
     }
 
     public void calBMI(View view) {
@@ -78,11 +79,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void show_alertdialog(View view) {
-        String[] a = {"Red","Green","Blue"};
+//        String[] a = {"Red","Green","Blue"};
+
         new AlertDialog.Builder(MainActivity.this)
                 .setTitle("你的BMI")
 //                .setMessage(bmi_value())
-                .setItems(a,null)
+//                .setItems(R.array.color, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        String[] colorArray = getResources().getStringArray(R.array.color);
+//                        showbmi.setText(colorArray[which]);
+//                    }
+//                })
+                .setMultiChoiceItems(R.array.color, checked, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+
+                    }
+                })
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
